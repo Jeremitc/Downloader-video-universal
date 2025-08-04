@@ -37,10 +37,13 @@ def download_video(url):
         sys.exit(1)
 
 if __name__ == '__main__':
-    # Check if a URL was provided
-    if len(sys.argv) != 2:
-        print("Uso: python downloader.py <URL_DEL_VIDEO>")
+    # Prompt the user for the video URL
+    video_url = input("Por favor, introduce la URL del video y presiona Enter: ")
+
+    # Check if the URL is empty
+    if not video_url.strip():
+        print("[-] No se ha introducido ninguna URL. Saliendo.")
         sys.exit(1)
 
-    video_url = sys.argv[1]
-    download_video(video_url)
+    # Start the download
+    download_video(video_url.strip())

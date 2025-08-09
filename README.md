@@ -1,41 +1,113 @@
-# Descargador de Videos
+# 🎬 Descargador de Videos Universal
 
-Este es un sencillo script de Python para descargar videos de diversas páginas web utilizando `yt-dlp`.
+¡Bienvenido al Descargador de Videos Universal! Este es un script de Python sencillo pero potente que te permite descargar videos de una amplia variedad de sitios web, gracias a la increíble biblioteca `yt-dlp`.
 
-## Requisitos
+---
 
-- Python 3.6 o superior. Si no lo tienes instalado, puedes descargarlo desde [python.org](https://www.python.org/downloads/).
+## ✨ Características Principales
 
-## Instalación
+-   **Descarga Fácil**: Simplemente proporciona la URL del video.
+-   **Alta Calidad**: Descarga videos en la mejor calidad MP4 disponible.
+-   **Organización Automática**: Los videos se guardan ordenadamente en una carpeta `downloads`.
+-   **Soporte Amplio**: Compatible con innumerables plataformas de video (YouTube, Vimeo, etc., gracias a `yt-dlp`).
 
-1.  **Clona o descarga este repositorio.**
+---
 
-2.  **Abre una terminal o línea de comandos** en la carpeta del proyecto.
+## 🛠️ Configuración del Entorno (con `pyenv`)
 
-3.  **Instala las dependencias necesarias:**
+Para asegurar un entorno de desarrollo limpio y evitar conflictos de dependencias, recomendamos encarecidamente usar `pyenv`.
 
+1.  **Verifica tu versión de Python con `pyenv`**:
+    Este proyecto está configurado para usar Python `3.11.9`. Puedes verificarlo con:
     ```bash
-    pip install -r requirements.txt
+    pyenv versions
+    ```
+    Si no tienes `3.11.9` instalado, puedes instalarlo con:
+    ```bash
+    pyenv install 3.11.9
     ```
 
-    *Nota sobre el entorno virtual:* Aunque no es estrictamente necesario para que funcione, se recomienda instalar las dependencias en un [entorno virtual](https://docs.python.org/es/3/tutorial/venv.html) para evitar conflictos con otros proyectos de Python.
+2.  **Establece la versión local de Python**:
+    Navega a la raíz de este proyecto y establece la versión de Python:
+    ```bash
+    cd C:\Users\Usuario\Desktop\Proyectos para mi\download videos
+    pyenv local 3.11.9
+    ```
+    Esto creará o actualizará el archivo `.python-version` en el directorio del proyecto.
 
-## Uso
+3.  **Activa el entorno virtual (opcional, pero recomendado)**:
+    Aunque `pyenv` ya gestiona la versión, puedes crear un entorno virtual específico si lo deseas (útil para aislar aún más las dependencias):
+    ```bash
+    python -m venv .venv
+    # En Windows:
+    .\.venv\Scripts\activate
+    # En macOS/Linux:
+    source ./.venv/bin/activate
+    ```
 
-Para descargar un video, ejecuta el script `downloader.py` desde tu terminal, pasándole la URL de la página del video como argumento.
+---
+
+## 📦 Instalación de Dependencias
+
+Una vez que tu entorno Python esté configurado, instala las bibliotecas necesarias:
 
 ```bash
-python downloader.py "URL_DEL_VIDEO_AQUI"
+pip install -r requirements.txt
 ```
 
-**Ejemplo:**
+---
+
+## 🚀 Uso
+
+Para descargar un video, ejecuta el script `downloader.py` desde tu terminal. El script te pedirá la URL del video.
 
 ```bash
-python downloader.py "https://www.ejemplo.com/video/12345"
+python downloader.py
 ```
 
-El video se descargará en una carpeta llamada `downloads` dentro del directorio del proyecto.
+**Ejemplo de interacción:**
 
-## ¿Cómo funciona?
+```
+Por favor, introduce la URL del video y presiona Enter: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+[*] Iniciando descarga desde: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+... (progreso de descarga de yt-dlp) ...
+[+] Descarga completada con éxito.
+[*] El video se ha guardado en la carpeta 'downloads'.
+```
 
-El script utiliza la potente biblioteca `yt-dlp`, que se encarga de analizar la página, encontrar el flujo de video principal (ignorando anuncios y miniaturas) y descargarlo en la mejor calidad disponible en formato MP4.
+---
+
+## 💡 ¿Cómo Funciona?
+
+El corazón de este script es la biblioteca `yt-dlp`. Cuando proporcionas una URL, `yt-dlp` se encarga de:
+
+1.  **Analizar la página**: Identifica los flujos de video y audio disponibles.
+2.  **Seleccionar la mejor calidad**: Prioriza la descarga de la mejor calidad de video (MP4) y audio (M4A), fusionándolos si es necesario.
+3.  **Descargar**: Guarda el contenido en la carpeta `downloads` con un nombre de archivo limpio basado en el título del video.
+4.  **Manejo de Errores**: Incluye un manejo básico para errores de descarga.
+
+---
+
+## 📂 Estructura del Proyecto
+
+```
+.
+├── .python-version      # Define la versión de Python para pyenv
+├── downloader.py        # El script principal para descargar videos
+├── README.md            # Este archivo
+├── requirements.txt     # Lista de dependencias del proyecto
+├── .git/                # Archivos de configuración de Git
+└── downloads/           # Carpeta donde se guardarán los videos descargados
+```
+
+---
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar este script, no dudes en abrir un "issue" o enviar un "pull request".
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.

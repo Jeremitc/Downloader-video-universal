@@ -4,8 +4,8 @@ gallery-dl/
 
 .env
 cookies.txt
-*.exe
 *.html
+
 *.txt
 !requirements.txt
 !README.md

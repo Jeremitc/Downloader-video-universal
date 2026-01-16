@@ -1,2 +1,15 @@
-/downloads
+/downloads/
+/downloads2/
+gallery-dl/
+
 .env
+cookies.txt
+*.exe
+*.html
+*.txt
+!requirements.txt
+!README.md
+__pycache__/
+.venv/
+.vscode/
+GEMINI.md
